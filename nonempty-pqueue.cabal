@@ -1,0 +1,71 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           nonempty-pqueue
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/pgujjula/nonempty-pqueue#readme>
+stability:      experimental
+homepage:       https://github.com/pgujjula/nonempty-pqueue#readme
+bug-reports:    https://github.com/pgujjula/nonempty-pqueue/issues
+author:         Preetham Gujjula
+maintainer:     libraries@mail.preetham.io
+copyright:      Preetham Gujjula
+license:        BSD-3-Clause
+build-type:     Simple
+tested-with:
+    GHC == 8.10.7
+extra-doc-files:
+    README.md
+    CHANGELOG.md
+    LICENSES/BSD-3-Clause.txt
+
+source-repository head
+  type: git
+  location: https://github.com/pgujjula/nonempty-pqueue
+
+library
+  exposed-modules:
+      FibsMod
+  hs-source-dirs:
+      src
+  default-extensions:
+      ImportQualifiedPost
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite nonempty-pqueue-tests
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Test.FibsMod
+  hs-source-dirs:
+      test
+  default-extensions:
+      ImportQualifiedPost
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , nonempty-pqueue
+    , tasty
+    , tasty-hunit
+  default-language: Haskell2010
+
+benchmark proj-benchmarks
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  hs-source-dirs:
+      bench
+  default-extensions:
+      ImportQualifiedPost
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5
+    , nonempty-pqueue
+    , tasty
+    , tasty-bench
+  default-language: Haskell2010

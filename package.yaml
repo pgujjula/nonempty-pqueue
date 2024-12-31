@@ -1,0 +1,68 @@
+# SPDX-FileCopyrightText: Copyright Preetham Gujjula
+# SPDX-License-Identifier: BSD-3-Clause
+spec-version: 0.36.0
+name:         nonempty-pqueue
+version:      0.1.0.0
+# synopsis:   Short description of your package
+description:  Please see the README on GitHub at <https://github.com/pgujjula/nonempty-pqueue#readme>
+# category:   Web
+stability:    experimental
+github:       "pgujjula/nonempty-pqueue"
+author:       "Preetham Gujjula"
+maintainer:   "libraries@mail.preetham.io"
+copyright:    "Preetham Gujjula"
+license:      BSD-3-Clause
+
+tested-with:
+- GHC == 8.10.7
+
+extra-doc-files:
+- README.md
+- CHANGELOG.md
+- LICENSES/BSD-3-Clause.txt
+
+language: Haskell2010
+
+default-extensions:
+- ImportQualifiedPost
+
+dependencies:
+- base >= 4.7 && < 5
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+tests:
+  nonempty-pqueue-tests:
+    main: Main.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - nonempty-pqueue
+    - tasty
+    - tasty-hunit
+
+benchmarks:
+  proj-benchmarks:
+    main: Main.hs
+    source-dirs: bench
+    ghc-options:
+    - -O2
+    dependencies:
+    - nonempty-pqueue
+    - tasty
+    - tasty-bench
