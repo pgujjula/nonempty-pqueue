@@ -4,14 +4,13 @@
 module Main (main) where
 
 import Data.List (genericTake)
-import FibsMod (fibsMod)
 import Test.Tasty.Bench
 
 f :: Word -> Word
 f n =
   let m :: Word
       m = 30 + n `quot` maxBound
-   in sum (genericTake n (fibsMod m))
+   in sum (genericTake n (replicate 10 m))
 
 main :: IO ()
 main = defaultMain $

@@ -28,7 +28,7 @@ source-repository head
 
 library
   exposed-modules:
-      FibsMod
+      Data.PQueue.NonEmpty.Min
   hs-source-dirs:
       src
   default-extensions:
