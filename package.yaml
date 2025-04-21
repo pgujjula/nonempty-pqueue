@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: Copyright Preetham Gujjula
+# SPDX-License-Identifier: BSD-3-Clause
+spec-version: 0.37.0
+name:         nonempty-pqueue
+version:      0.1.0.0
+synopsis:     Nonempty priority queues
+description:  Please see the README on Codeberg at <https://codeberg.org/pgujjula/nonempty-pqueue#readme>
+category:     Data
+stability:    experimental
+github:       "pgujjula/nonempty-pqueue"
+author:       "Preetham Gujjula"
+maintainer:   "Preetham Gujjula <libraries@mail.preetham.io>"
+copyright:    "Preetham Gujjula"
+license:      BSD-3-Clause
+
+tested-with:
+- GHC == 8.0.2
+- GHC == 8.2.2
+- GHC == 8.4.4
+- GHC == 8.6.5
+- GHC == 8.8.4
+- GHC == 8.10.7
+- GHC == 9.0.2
+- GHC == 9.2.8
+- GHC == 9.4.8
+- GHC == 9.6.7
+- GHC == 9.8.4
+- GHC == 9.10.1
+- GHC == 9.12.2
+
+extra-doc-files:
+- README.md
+- CHANGELOG.md
+- LICENSES/BSD-3-Clause.txt
+
+language: Haskell2010
+
+dependencies:
+- base ^>= {4.9, 4.10, 4.11, 4.12, 4.13, 4.14, 4.15, 4.16, 4.17, 4.18, 4.19, 4.20, 4.21}
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
+when:
+- condition: impl(ghc >= 8.2)
+  ghc-options:
+  - -Wmissing-home-modules
+- condition: impl(ghc >= 8.4)
+  ghc-options:
+  - -Wmissing-export-lists
+  - -Wpartial-fields
+- condition: impl(ghc >= 8.10)
+  ghc-options:
+  - -Wunused-packages
+
+library:
+  source-dirs: src
+
+tests:
+  nonempty-pqueue-tests:
+    main: Main.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - nonempty-pqueue
+    - tasty ^>= {1.4, 1.5}
+    - tasty-hunit ^>= {0.10}

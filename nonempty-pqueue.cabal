@@ -1,0 +1,78 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           nonempty-pqueue
+version:        0.1.0.0
+synopsis:       Nonempty priority queues
+description:    Please see the README on Codeberg at <https://codeberg.org/pgujjula/nonempty-pqueue#readme>
+category:       Data
+stability:      experimental
+homepage:       https://github.com/pgujjula/nonempty-pqueue#readme
+bug-reports:    https://github.com/pgujjula/nonempty-pqueue/issues
+author:         Preetham Gujjula
+maintainer:     Preetham Gujjula <libraries@mail.preetham.io>
+copyright:      Preetham Gujjula
+license:        BSD-3-Clause
+build-type:     Simple
+tested-with:
+    GHC == 8.0.2
+  , GHC == 8.2.2
+  , GHC == 8.4.4
+  , GHC == 8.6.5
+  , GHC == 8.8.4
+  , GHC == 8.10.7
+  , GHC == 9.0.2
+  , GHC == 9.2.8
+  , GHC == 9.4.8
+  , GHC == 9.6.7
+  , GHC == 9.8.4
+  , GHC == 9.10.1
+  , GHC == 9.12.2
+extra-doc-files:
+    README.md
+    CHANGELOG.md
+    LICENSES/BSD-3-Clause.txt
+
+source-repository head
+  type: git
+  location: https://github.com/pgujjula/nonempty-pqueue
+
+library
+  exposed-modules:
+      Data.PQueue.Min.NonEmpty
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      base >=4.9 && <4.10 || >=4.10 && <4.11 || >=4.11 && <4.12 || >=4.12 && <4.13 || >=4.13 && <4.14 || >=4.14 && <4.15 || >=4.15 && <4.16 || >=4.16 && <4.17 || >=4.17 && <4.18 || >=4.18 && <4.19 || >=4.19 && <4.20 || >=4.20 && <4.21 || >=4.21 && <4.22
+  default-language: Haskell2010
+  if impl(ghc >= 8.2)
+    ghc-options: -Wmissing-home-modules
+  if impl(ghc >= 8.4)
+    ghc-options: -Wmissing-export-lists -Wpartial-fields
+  if impl(ghc >= 8.10)
+    ghc-options: -Wunused-packages
+
+test-suite nonempty-pqueue-tests
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Test.Data.PQueue.Min.NonEmpty
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.9 && <4.10 || >=4.10 && <4.11 || >=4.11 && <4.12 || >=4.12 && <4.13 || >=4.13 && <4.14 || >=4.14 && <4.15 || >=4.15 && <4.16 || >=4.16 && <4.17 || >=4.17 && <4.18 || >=4.18 && <4.19 || >=4.19 && <4.20 || >=4.20 && <4.21 || >=4.21 && <4.22
+    , nonempty-pqueue
+    , tasty >=1.4 && <1.5 || >=1.5 && <1.6
+    , tasty-hunit ==0.10.*
+  default-language: Haskell2010
+  if impl(ghc >= 8.2)
+    ghc-options: -Wmissing-home-modules
+  if impl(ghc >= 8.4)
+    ghc-options: -Wmissing-export-lists -Wpartial-fields
+  if impl(ghc >= 8.10)
+    ghc-options: -Wunused-packages
